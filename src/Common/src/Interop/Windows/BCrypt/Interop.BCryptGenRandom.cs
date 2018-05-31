@@ -13,10 +13,10 @@ internal partial class Interop
         internal static NTSTATUS BCryptGenRandom(ref byte pbBuffer, int count)
         {
             Debug.Assert(count >= 0);
-            return BCryptGenRandom(IntPtr.Zero, ref pbBuffer, count, BCRYPT_USE_SYSTEM_PREFERRED_RNG);
+            return BCryptGenRandom(IntPtr.Zero, ref pbBuffer, count, _BCRYPT_USE_SYSTEM_PREFERRED_RNG);
         }
 
-        private const int BCRYPT_USE_SYSTEM_PREFERRED_RNG = 0x00000002;
+        private const int _BCRYPT_USE_SYSTEM_PREFERRED_RNG = 0x00000002;
 
         [DllImport(Libraries.BCrypt, CharSet = CharSet.Unicode)]
         private static extern NTSTATUS BCryptGenRandom(IntPtr hAlgorithm, ref byte pbBuffer, int cbBuffer, int dwFlags);
